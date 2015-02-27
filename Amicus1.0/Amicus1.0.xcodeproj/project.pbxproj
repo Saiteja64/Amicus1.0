@@ -1,0 +1,444 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2FCE07F21AA1197100435BCF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FCE07F11AA1197100435BCF /* main.m */; };
+		2FCE07F51AA1197100435BCF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FCE07F41AA1197100435BCF /* AppDelegate.m */; };
+		2FCE07F81AA1197100435BCF /* Amicus1_0.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2FCE07F61AA1197100435BCF /* Amicus1_0.xcdatamodeld */; };
+		2FCE07FB1AA1197100435BCF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FCE07FA1AA1197100435BCF /* ViewController.m */; };
+		2FCE07FE1AA1197100435BCF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FCE07FC1AA1197100435BCF /* Main.storyboard */; };
+		2FCE08001AA1197100435BCF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FCE07FF1AA1197100435BCF /* Images.xcassets */; };
+		2FCE08031AA1197100435BCF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FCE08011AA1197100435BCF /* LaunchScreen.xib */; };
+		2FCE080F1AA1197100435BCF /* Amicus1_0Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FCE080E1AA1197100435BCF /* Amicus1_0Tests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2FCE08091AA1197100435BCF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2FCE07E41AA1197100435BCF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2FCE07EB1AA1197100435BCF;
+			remoteInfo = Amicus1.0;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2FCE07EC1AA1197100435BCF /* Amicus1.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Amicus1.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FCE07F01AA1197100435BCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FCE07F11AA1197100435BCF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2FCE07F31AA1197100435BCF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2FCE07F41AA1197100435BCF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2FCE07F71AA1197100435BCF /* Amicus1_0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Amicus1_0.xcdatamodel; sourceTree = "<group>"; };
+		2FCE07F91AA1197100435BCF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		2FCE07FA1AA1197100435BCF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		2FCE07FD1AA1197100435BCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2FCE07FF1AA1197100435BCF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2FCE08021AA1197100435BCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		2FCE08081AA1197100435BCF /* Amicus1.0Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Amicus1.0Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FCE080D1AA1197100435BCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FCE080E1AA1197100435BCF /* Amicus1_0Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Amicus1_0Tests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2FCE07E91AA1197100435BCF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2FCE08051AA1197100435BCF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2FCE07E31AA1197100435BCF = {
+			isa = PBXGroup;
+			children = (
+				2FCE07EE1AA1197100435BCF /* Amicus1.0 */,
+				2FCE080B1AA1197100435BCF /* Amicus1.0Tests */,
+				2FCE07ED1AA1197100435BCF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2FCE07ED1AA1197100435BCF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2FCE07EC1AA1197100435BCF /* Amicus1.0.app */,
+				2FCE08081AA1197100435BCF /* Amicus1.0Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2FCE07EE1AA1197100435BCF /* Amicus1.0 */ = {
+			isa = PBXGroup;
+			children = (
+				2FCE07F31AA1197100435BCF /* AppDelegate.h */,
+				2FCE07F41AA1197100435BCF /* AppDelegate.m */,
+				2FCE07F91AA1197100435BCF /* ViewController.h */,
+				2FCE07FA1AA1197100435BCF /* ViewController.m */,
+				2FCE07FC1AA1197100435BCF /* Main.storyboard */,
+				2FCE07FF1AA1197100435BCF /* Images.xcassets */,
+				2FCE08011AA1197100435BCF /* LaunchScreen.xib */,
+				2FCE07F61AA1197100435BCF /* Amicus1_0.xcdatamodeld */,
+				2FCE07EF1AA1197100435BCF /* Supporting Files */,
+			);
+			path = Amicus1.0;
+			sourceTree = "<group>";
+		};
+		2FCE07EF1AA1197100435BCF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2FCE07F01AA1197100435BCF /* Info.plist */,
+				2FCE07F11AA1197100435BCF /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2FCE080B1AA1197100435BCF /* Amicus1.0Tests */ = {
+			isa = PBXGroup;
+			children = (
+				2FCE080E1AA1197100435BCF /* Amicus1_0Tests.m */,
+				2FCE080C1AA1197100435BCF /* Supporting Files */,
+			);
+			path = Amicus1.0Tests;
+			sourceTree = "<group>";
+		};
+		2FCE080C1AA1197100435BCF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2FCE080D1AA1197100435BCF /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2FCE07EB1AA1197100435BCF /* Amicus1.0 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2FCE08121AA1197200435BCF /* Build configuration list for PBXNativeTarget "Amicus1.0" */;
+			buildPhases = (
+				2FCE07E81AA1197100435BCF /* Sources */,
+				2FCE07E91AA1197100435BCF /* Frameworks */,
+				2FCE07EA1AA1197100435BCF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Amicus1.0;
+			productName = Amicus1.0;
+			productReference = 2FCE07EC1AA1197100435BCF /* Amicus1.0.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2FCE08071AA1197100435BCF /* Amicus1.0Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2FCE08151AA1197200435BCF /* Build configuration list for PBXNativeTarget "Amicus1.0Tests" */;
+			buildPhases = (
+				2FCE08041AA1197100435BCF /* Sources */,
+				2FCE08051AA1197100435BCF /* Frameworks */,
+				2FCE08061AA1197100435BCF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2FCE080A1AA1197100435BCF /* PBXTargetDependency */,
+			);
+			name = Amicus1.0Tests;
+			productName = Amicus1.0Tests;
+			productReference = 2FCE08081AA1197100435BCF /* Amicus1.0Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2FCE07E41AA1197100435BCF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = edu.saiteja;
+				TargetAttributes = {
+					2FCE07EB1AA1197100435BCF = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					2FCE08071AA1197100435BCF = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 2FCE07EB1AA1197100435BCF;
+					};
+				};
+			};
+			buildConfigurationList = 2FCE07E71AA1197100435BCF /* Build configuration list for PBXProject "Amicus1.0" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2FCE07E31AA1197100435BCF;
+			productRefGroup = 2FCE07ED1AA1197100435BCF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2FCE07EB1AA1197100435BCF /* Amicus1.0 */,
+				2FCE08071AA1197100435BCF /* Amicus1.0Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2FCE07EA1AA1197100435BCF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FCE07FE1AA1197100435BCF /* Main.storyboard in Resources */,
+				2FCE08031AA1197100435BCF /* LaunchScreen.xib in Resources */,
+				2FCE08001AA1197100435BCF /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2FCE08061AA1197100435BCF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2FCE07E81AA1197100435BCF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FCE07F81AA1197100435BCF /* Amicus1_0.xcdatamodeld in Sources */,
+				2FCE07F51AA1197100435BCF /* AppDelegate.m in Sources */,
+				2FCE07FB1AA1197100435BCF /* ViewController.m in Sources */,
+				2FCE07F21AA1197100435BCF /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2FCE08041AA1197100435BCF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FCE080F1AA1197100435BCF /* Amicus1_0Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2FCE080A1AA1197100435BCF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2FCE07EB1AA1197100435BCF /* Amicus1.0 */;
+			targetProxy = 2FCE08091AA1197100435BCF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2FCE07FC1AA1197100435BCF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2FCE07FD1AA1197100435BCF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2FCE08011AA1197100435BCF /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2FCE08021AA1197100435BCF /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2FCE08101AA1197100435BCF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		2FCE08111AA1197100435BCF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2FCE08131AA1197200435BCF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Amicus1.0/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2FCE08141AA1197200435BCF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Amicus1.0/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		2FCE08161AA1197200435BCF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Amicus1.0Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Amicus1.0.app/Amicus1.0";
+			};
+			name = Debug;
+		};
+		2FCE08171AA1197200435BCF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Amicus1.0Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Amicus1.0.app/Amicus1.0";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2FCE07E71AA1197100435BCF /* Build configuration list for PBXProject "Amicus1.0" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2FCE08101AA1197100435BCF /* Debug */,
+				2FCE08111AA1197100435BCF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2FCE08121AA1197200435BCF /* Build configuration list for PBXNativeTarget "Amicus1.0" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2FCE08131AA1197200435BCF /* Debug */,
+				2FCE08141AA1197200435BCF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2FCE08151AA1197200435BCF /* Build configuration list for PBXNativeTarget "Amicus1.0Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2FCE08161AA1197200435BCF /* Debug */,
+				2FCE08171AA1197200435BCF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2FCE07F61AA1197100435BCF /* Amicus1_0.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2FCE07F71AA1197100435BCF /* Amicus1_0.xcdatamodel */,
+			);
+			currentVersion = 2FCE07F71AA1197100435BCF /* Amicus1_0.xcdatamodel */;
+			path = Amicus1_0.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 2FCE07E41AA1197100435BCF /* Project object */;
+}
