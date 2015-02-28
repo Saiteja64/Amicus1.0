@@ -33,6 +33,7 @@
 		2FCE08421AA11C2C00435BCF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FCE08411AA11C2C00435BCF /* SystemConfiguration.framework */; };
 		2FCE08441AA11C3700435BCF /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FCE08431AA11C3700435BCF /* libz.dylib */; };
 		2FCE08461AA11C4000435BCF /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FCE08451AA11C4000435BCF /* libsqlite3.dylib */; };
+		2FF2DB041AA1655200355976 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FF2DB031AA1655200355976 /* FacebookSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		2FCE08411AA11C2C00435BCF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		2FCE08431AA11C3700435BCF /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		2FCE08451AA11C4000435BCF /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		2FF2DB031AA1655200355976 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../../../../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FCE08461AA11C4000435BCF /* libsqlite3.dylib in Frameworks */,
+				2FF2DB041AA1655200355976 /* FacebookSDK.framework in Frameworks */,
 				2FCE08441AA11C3700435BCF /* libz.dylib in Frameworks */,
 				2FCE08421AA11C2C00435BCF /* SystemConfiguration.framework in Frameworks */,
 				2FCE08401AA11C2300435BCF /* StoreKit.framework in Frameworks */,
@@ -180,6 +183,7 @@
 		2FCE082C1AA11B8900435BCF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2FF2DB031AA1655200355976 /* FacebookSDK.framework */,
 				2FCE08451AA11C4000435BCF /* libsqlite3.dylib */,
 				2FCE08431AA11C3700435BCF /* libz.dylib */,
 				2FCE083D1AA11C1900435BCF /* Social.framework */,
@@ -251,6 +255,7 @@
 				TargetAttributes = {
 					2FCE07EB1AA1197100435BCF = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 4MHGB5N6RT;
 					};
 					2FCE08071AA1197100435BCF = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -427,14 +432,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Amicus1.0",
+					/Users/saiteja64/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = Amicus1.0/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -442,14 +451,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Amicus1.0",
+					/Users/saiteja64/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = Amicus1.0/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -506,6 +519,7 @@
 				2FCE08141AA1197200435BCF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2FCE08151AA1197200435BCF /* Build configuration list for PBXNativeTarget "Amicus1.0Tests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +528,7 @@
 				2FCE08171AA1197200435BCF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

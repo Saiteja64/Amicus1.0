@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <NSURLConnectionDelegate>
+
+@property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activityIndicator;
+
+- (IBAction)loginPressed:(id)sender;
+- (IBAction)getData:(id)sender;
+-(IBAction)logOut:(id)sender;
 
 
 @end

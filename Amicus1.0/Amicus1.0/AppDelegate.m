@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import <FacebookSDK/FacebookSDK.h>
+#import <ParseFacebookUtils/PFFacebookUtils.h>
 
 
 @interface AppDelegate ()
@@ -18,9 +20,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [Parse setApplicationId:@"FlWEOiuomKOGHPgEaZ2HI6iil7ILQA306l7NioKe"
-                  clientKey:@"psJelOEAcsdMMnFYMjrCsr6eXroYfDk7tr8L1CFf"];
+    
+    [Parse setApplicationId:@"CNLajQQhWyZ83ZZAP0Uq2kdWLmHRGZR5mAeHoy7P"
+                  clientKey:@"5Ydf5dAmA8CoAmbqcLnyKjkpnLvNaQlqyDpdXioB"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    [PFFacebookUtils initializeFacebook];
     return YES;
 }
 
