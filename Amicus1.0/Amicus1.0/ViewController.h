@@ -15,6 +15,7 @@
 - (IBAction)loginPressed:(id)sender;
 - (IBAction)getData:(id)sender;
 -(IBAction)logOut:(id)sender;
+-(void)save:(NSMutableArray*)array;
 
 
 @end

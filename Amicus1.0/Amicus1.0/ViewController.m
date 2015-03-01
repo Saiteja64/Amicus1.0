@@ -12,15 +12,21 @@
 #import <CoreLocation/CoreLocation.h>
 
 
+
 @interface ViewController ()
 {
     CLLocationManager * locationManager;
+    NSMutableArray * ids;
+    NSMutableArray * fbfriendsnearby;
+    CLLocation * location1;
 }
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
+    fbfriendsnearby = [[NSMutableArray alloc]initWithCapacity:50];
+    location1 = [[CLLocation alloc]init];
     [super viewDidLoad];
     
     
@@ -43,14 +49,7 @@
         }
     }];*/
 }
-
--(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
-{
-    NSLog(@"did fail with error");
-}
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-    CLLocation * newLocation = [locations lastObject];
+- (IBAction)tester:(id)sender {
     
     if ([PFUser currentUser]) {
         
@@ -61,6 +60,9 @@
     [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
         // handle response
         if (!error) {
+            
+            
+            
             // Parse the data received
             
             NSDictionary *userData = (NSDictionary *)result;
@@ -76,8 +78,6 @@
                 userProfile[@"facebookId"] = facebookID;
             }
             
-    
-            
             NSString *name = userData[@"name"];
             if (name) {
                 userProfile[@"name"] = name;
@@ -89,7 +89,9 @@
                 userProfile[@"location"] = location;
             }
             
-            userProfile[@"currentLocation"] = newLocation;
+            NSString * location2 = [NSString stringWithFormat:@"%f,%f",location1.coordinate.latitude,location1.coordinate.longitude];
+            userProfile[@"currentLocation"] = location2;
+            NSLog(@"%@",userProfile[@"currentLocation"]);
             
             NSString *gender = userData[@"gender"];
             if (gender) {
@@ -108,8 +110,15 @@
             
             userProfile[@"pictureURL"] = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID];
             
+            NSLog(@"====++++=====");
+            
             [[PFUser currentUser] setObject:userProfile forKey:@"profile"];
+            
+            NSLog(@"=+");
+            
             [[PFUser currentUser] saveInBackground];
+            NSLog(@"==");
+            
             
         } else if ([[[[error userInfo] objectForKey:@"error"] objectForKey:@"type"]
                     isEqualToString: @"OAuthException"]) { // Since the request failed, we can check if it was due to an invalid session
@@ -119,8 +128,19 @@
             NSLog(@"Some other error: %@", error);
         }
     }];
-
+    
     NSLog(@"swag");
+}
+
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"did fail with error");
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    CLLocation * newLocation = [locations lastObject];
+    location1 = newLocation;
+    
 }
 
 
@@ -139,9 +159,12 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    // Check if user is cached and linked to Facebook, if so, bypass login
+    if ([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
+    }
     
 }
+
+
 
 
 - (IBAction)loginPressed:(id)sender {
@@ -201,32 +224,133 @@
 
 
 - (IBAction)getData:(id)sender {
-    NSMutableArray * array = [[NSMutableArray alloc]initWithCapacity:20];
-    PFQuery *query = [PFUser query];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            // The find succeeded. The first 100 objects are available in objects
-            NSLog(@"%@", objects);
-            for (PFUser * user in objects)
-            {
-                if(user == [PFUser currentUser])
-                    continue;
-                CLLocation *currentLocation = user[@"profile"][@"currentLocation"];
-                NSLog(currentLocation);
-                CLLocation* local = [PFUser currentUser][@"profile"][@"currentLocation"];
-                CLLocationDistance itemDist = [local distanceFromLocation:currentLocation];
-                if(itemDist < 10)
-                    [array addObject:user];
-            }
-            NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
-            [defaults setObject:array forKey:@"nearby"];
-        } else {
-            // Log details of the failure
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-           
-        }
-    }];
+    
+    ids = [[NSMutableArray alloc]init];
+    [FBRequestConnection startWithGraphPath:@"/me/friends"
+                                 parameters:nil
+                                 HTTPMethod:@"GET"
+                          completionHandler:^(
+                                              FBRequestConnection *connection,
+                                              id result,
+                                              NSError *error
+                                              ) {
+                              NSMutableDictionary * fBInfo = [[NSMutableDictionary alloc]init];
+                              fBInfo =  (NSMutableDictionary*)result;
+                              NSLog(@"%@",fBInfo[@"data"]);
+                              NSMutableArray * FBUsers = fBInfo[@"data"];
+                              for(int i = 0; i < [FBUsers count]; i++)
+                              {
+                                 NSString * userId =  [FBUsers objectAtIndex:i][@"id"];
+                                  NSLog(@"sdaa%@",userId);
+                                  [ids addObject:userId];
+                              }
+                              
+                              
+                              NSMutableArray * array = [[NSMutableArray alloc]initWithCapacity:20];
+                              PFQuery *query = [PFUser query];
+                              [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                                  if (!error) {
+                                      // The find succeeded. The first 100 objects are available in objects
+                                      NSLog(@"eqweq%@", objects);
+                                      NSLog(@"ji%@",[objects objectAtIndex:0]);
+                                      NSMutableDictionary * dic = [[ objects objectAtIndex:0] objectForKey:@"profile"];
+                                      NSLog(@"sauce%@",dic[@"facebookId"]);
+                                      NSLog(@"jia%@",[[ objects objectAtIndex:0] objectForKey:@"profile"]);
+                                      
+                                      int k = 0;
+                                      for (NSMutableDictionary * user in objects)
+                                      {
+                                          
+                                          
+                                          NSString * string = user[@"profile"][@"currentLocation"];
+                                          NSLog(@"fafdadfa%@",string);
+                                          NSString * lats = [NSString stringWithFormat:@""];
+                                          NSString * longs = [NSString stringWithFormat:@""];
+                                          
+                                          
+                                          
+                                          NSString * distancetemp = user[@"profile"][@"currentLocation"];
+                                          NSScanner * scan = [NSScanner scannerWithString:distancetemp];
+                                          [scan scanUpToString:@"," intoString:&longs];
+                                          [scan scanString:@"," intoString:nil];
+                                          [scan scanString:@"" intoString:&lats];
+                                          
+                                          CLLocation *locB = [[CLLocation alloc] initWithLatitude:[lats floatValue] longitude:[longs floatValue]];
+                                          
+                                          CLLocationDistance distance = [location1 distanceFromLocation:locB];
+                                          NSString * distancer = [NSString stringWithFormat:@"%f",distance];
+                                          NSLog(@"%f",distance);
+                                          if([[ids objectAtIndex:k ] isEqualToString:user[@"profile"][@"facebookId"]])
+                                              [fbfriendsnearby addObject:user ];
+                                          
+                                          
+                                          NSString * stringr = user[@"profile"][@"facebookId"];
+                                          NSLog(@"strupper%@",stringr);
+                                          
+                                          NSString * strings = [ids objectAtIndex:k];
+                                          NSLog(@"louse%@",[ids objectAtIndex:k]);
+                                          
+                                          [self save:fbfriendsnearby];
+                                          k++;
+                                      }
+                                  } else {
+                                      // Log details of the failure
+                                      NSLog(@"Error: %@ %@", error, [error userInfo]);
+                                      
+                                  }
+                              }];
+
+                          }];
+    
+    }
+
+-(void)save:(NSMutableArray*)array
+{
+    NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+    NSMutableArray * names = [[NSMutableArray alloc]initWithCapacity:10];
+    NSMutableArray * statuses = [[NSMutableArray alloc]initWithCapacity:10];
+    NSMutableArray * distances = [[NSMutableArray alloc]initWithCapacity:10];
+    NSMutableArray * images = [[NSMutableArray alloc]initWithCapacity:10];
+    
+    NSLog(@"%lu",(unsigned long)[array count]);
+    
+    for(int i = 0; i < [array count]; i++)
+    {
+        NSString * name = [array objectAtIndex:i][@"profile"][@"name"];
+        [names addObject:name];
+        NSLog(@"debugpoint1%@",name);
+    
+        NSString * status = [array objectAtIndex:i][@"profile"][@"relationship-status"];
+        [statuses addObject:status];
+        NSLog(@"debugpoint2%@",status);
+        
+        NSString * imageURL = [array objectAtIndex:i][@"profile"][@"pictureURL"];
+        [images addObject:imageURL];
+        NSLog(@"debugpoint3%@",imageURL);
+        
+        NSString * distancetemp = [array objectAtIndex:i][@"profile"][@"currentLocation"];
+        CLLocation * loc = (CLLocation*)[PFUser currentUser][@"currentLocation"];
+        NSString * longs = [NSString stringWithFormat:@""];
+        NSString * lats = [NSString stringWithFormat:@""];
+        NSScanner * scan = [NSScanner scannerWithString:distancetemp];
+        [scan scanUpToString:@"," intoString:&longs];
+        [scan scanString:@"," intoString:nil];
+        [scan scanString:@"" intoString:&lats];
+        
+        CLLocation *locB = [[CLLocation alloc] initWithLatitude:[lats floatValue] longitude:[longs floatValue]];
+        
+        CLLocationDistance distance = [location1 distanceFromLocation:locB];
+        NSString * distancer = [NSString stringWithFormat:@"%f",distance];
+            [distances addObject:distancer ];
+    }
+    
+
+    [defaults setObject:names forKey:@"names"];
+    [defaults setObject:statuses forKey:@"statuses"];
+    [defaults setObject:distances forKey:@"distances"];
+    [defaults setObject:images forKey:@"images"];
 }
+
     @end
 
 
