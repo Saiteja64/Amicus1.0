@@ -8,7 +8,7 @@
 
 #import "TableViewController.h"
 #import "TableViewCell.h"
-#import "ParseFacebookUtils.framework/ParseFacebookUtils"
+#import <ParseFacebookUtils/PFFacebookUtils.h>
 
 @interface TableViewController ()
 
@@ -45,6 +45,18 @@
     // Return the number of sections.
     return 1;
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString: @"toChat"])
+    {
+        NSUserDefaults * defs = [NSUserDefaults standardUserDefaults];
+        TableViewCell *source = (TableViewCell *)sender;
+        NSLog(source.nameLabel.text);
+        [defs setObject:source.nameLabel.text forKey:@"chatMateId"];
+    }
+}
+
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

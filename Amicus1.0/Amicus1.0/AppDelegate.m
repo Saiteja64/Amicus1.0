@@ -10,6 +10,14 @@
 #import <Parse/Parse.h>
 #import <FacebookSDK/FacebookSDK.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
+#import <Sinch/Sinch.h>
+#import "MNCChatMessage.h"
+#import <Sinch/SINOutgoingMessage.h>
+#define SINCH_MESSAGE_RECIEVED @"SINCH_MESSAGE_RECIEVED"
+#define SINCH_MESSAGE_SENT @"SINCH_MESSAGE_SENT"
+#define SINCH_MESSAGE_DELIVERED @"SINCH_MESSAGE_DELIVERED"
+#define SINCH_MESSAGE_FAILED @"SINCH_MESSAGE_DELIVERED"
+
 
 
 @interface AppDelegate ()
@@ -27,6 +35,73 @@
     [PFFacebookUtils initializeFacebook];
     return YES;
 }
+
+- (void)initSinchClient:(NSString*)userId {
+    self.sinchClient = [Sinch clientWithApplicationKey:@"7c766b24-e5c5-468b-a954-b57df907126f"
+                                   applicationSecret:@"9GpQl/LtuEuLEBwg0Bc4Ow=="
+                                       environmentHost:@"sandbox.sinch.com"
+                                      userId:userId];
+    NSLog(@"Sinch version: %@, userId: %@", [Sinch version], [self.sinchClient userId]);
+    
+   [self.sinchClient setSupportMessaging:YES];
+    [self.sinchClient start];
+    [self.sinchClient startListeningOnActiveConnection];
+}
+
+- (void)messageClient:(id<SINMessageClient>)messageClient didReceiveIncomingMessage:(id<SINMessage>)message {
+    [[NSNotificationCenter defaultCenter] postNotificationName:SINCH_MESSAGE_RECIEVED object:self userInfo:@{@"message" : message}];
+}
+// Finish sending a message
+- (void)messageSent:(id<SINMessage>)message recipientId:(NSString *)recipientId {
+    [[NSNotificationCenter defaultCenter] postNotificationName:SINCH_MESSAGE_SENT object:self userInfo:@{@"message" : message}];
+}
+// Failed to send a message
+- (void)messageFailed:(id<SINMessage>)message info:(id<SINMessageFailureInfo>)messageFailureInfo {
+    [[NSNotificationCenter defaultCenter] postNotificationName:SINCH_MESSAGE_FAILED object:self userInfo:@{@"message" : message}];
+    NSLog(@"MessageBoard: message to %@ failed. Description: %@. Reason: %@.", messageFailureInfo.recipientId, messageFailureInfo.error.localizedDescription, messageFailureInfo.error.localizedFailureReason);
+}
+-(void)messageDelivered:(id<SINMessageDeliveryInfo>)info
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:SINCH_MESSAGE_FAILED object:info];
+}
+
+- (void)clientDidStart:(id<SINClient>)client {
+    NSLog(@"Start SINClient successful!");
+}
+
+- (void)clientDidFail:(id<SINClient>)client error:(NSError *)error {
+    NSLog(@"Start SINClient failed. Description: %@. Reason: %@.", error.localizedDescription, error.localizedFailureReason);
+}
+
+- (void)sendTextMessage:(NSString *)messageText toRecipient:(NSString *)recipientId {
+ //   SINOutgoingMessage *outgoingMessage = [SINOutgoingMessage messageWithRecipient:recipientId text:messageText];
+    //[self.sinchClient.messageClient sendMessage:outgoingMessage];
+}
+
+- (void)saveMessagesOnParse:(id<SINMessage>)message {
+    PFQuery *query = [PFQuery queryWithClassName:@"SinchMessage"];
+    [query whereKey:@"messageId" equalTo:[message messageId]];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *messageArray, NSError *error) {
+        if (!error) {
+            // If the SinchMessage is not already saved on Parse (an empty array is returned), save it.
+            if ([messageArray count] <= 0) {
+                PFObject *messageObject = [PFObject objectWithClassName:@"SinchMessage"];
+                
+                messageObject[@"messageId"] = [message messageId];
+                messageObject[@"senderId"] = [message senderId];
+                messageObject[@"recipientId"] = [message recipientIds][0];
+                messageObject[@"text"] = [message text];
+                messageObject[@"timestamp"] = [message timestamp];
+                
+                [messageObject saveInBackground];
+            }
+        } else {
+            NSLog(@"Error: %@", error.description);
+        }
+    }];
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

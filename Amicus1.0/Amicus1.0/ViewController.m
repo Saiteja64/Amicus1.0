@@ -79,6 +79,8 @@
             }
             
             NSString *name = userData[@"name"];
+            NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setObject:name forKey:@"myName"];
             if (name) {
                 userProfile[@"name"] = name;
                 NSLog(name);
