@@ -244,65 +244,79 @@
                                   NSLog(@"sdaa%@",userId);
                                   [ids addObject:userId];
                               }
-                              
-                              
-                              NSMutableArray * array = [[NSMutableArray alloc]initWithCapacity:20];
-                              PFQuery *query = [PFUser query];
-                              [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-                                  if (!error) {
-                                      // The find succeeded. The first 100 objects are available in objects
-                                      NSLog(@"eqweq%@", objects);
-                                      NSLog(@"ji%@",[objects objectAtIndex:0]);
-                                      NSMutableDictionary * dic = [[ objects objectAtIndex:0] objectForKey:@"profile"];
-                                      NSLog(@"sauce%@",dic[@"facebookId"]);
-                                      NSLog(@"jia%@",[[ objects objectAtIndex:0] objectForKey:@"profile"]);
-                                      
-                                      int k = 0;
-                                      for (NSMutableDictionary * user in objects)
-                                      {
-                                          
-                                          
-                                          NSString * string = user[@"profile"][@"currentLocation"];
-                                          NSLog(@"fafdadfa%@",string);
-                                          NSString * lats = [NSString stringWithFormat:@""];
-                                          NSString * longs = [NSString stringWithFormat:@""];
-                                          
-                                          
-                                          
-                                          NSString * distancetemp = user[@"profile"][@"currentLocation"];
-                                          NSScanner * scan = [NSScanner scannerWithString:distancetemp];
-                                          [scan scanUpToString:@"," intoString:&longs];
-                                          [scan scanString:@"," intoString:nil];
-                                          [scan scanString:@"" intoString:&lats];
-                                          
-                                          CLLocation *locB = [[CLLocation alloc] initWithLatitude:[lats floatValue] longitude:[longs floatValue]];
-                                          
-                                          CLLocationDistance distance = [location1 distanceFromLocation:locB];
-                                          NSString * distancer = [NSString stringWithFormat:@"%f",distance];
-                                          NSLog(@"%f",distance);
-                                          if([[ids objectAtIndex:k ] isEqualToString:user[@"profile"][@"facebookId"]])
-                                              [fbfriendsnearby addObject:user ];
-                                          
-                                          
-                                          NSString * stringr = user[@"profile"][@"facebookId"];
-                                          NSLog(@"strupper%@",stringr);
-                                          
-                                          NSString * strings = [ids objectAtIndex:k];
-                                          NSLog(@"louse%@",[ids objectAtIndex:k]);
-                                          
-                                          [self save:fbfriendsnearby];
-                                          k++;
-                                      }
-                                  } else {
-                                      // Log details of the failure
-                                      NSLog(@"Error: %@ %@", error, [error userInfo]);
-                                      
-                                  }
-                              }];
+      
 
                           }];
     
     }
+
+-(IBAction)press:(id)sender
+{
+    NSMutableArray * array = [[NSMutableArray alloc]initWithCapacity:20];
+    PFQuery *query = [PFUser query];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        @try {
+            
+            if (!error) {
+                // The find succeeded. The first 100 objects are available in objects
+                NSLog(@"eqweq%@", objects);
+                NSLog(@"ji%@",[objects objectAtIndex:0]);
+                NSMutableDictionary * dic = [[ objects objectAtIndex:0] objectForKey:@"profile"];
+                NSLog(@"sauce%@",dic[@"facebookId"]);
+                NSLog(@"jia%@",[[ objects objectAtIndex:0] objectForKey:@"profile"]);
+                
+                int k = 0;
+                for (NSMutableDictionary * user in objects)
+                {
+                    //if([PFUser currentUser][@"id"] == [ids objectAtIndex:k])
+                    // continue;
+                    
+                    NSString * string = user[@"profile"][@"currentLocation"];
+                    NSLog(@"fafdadfa%@",string);
+                    NSString * lats = [NSString stringWithFormat:@""];
+                    NSString * longs = [NSString stringWithFormat:@""];
+                    
+                    
+                    
+                    NSString * distancetemp = user[@"profile"][@"currentLocation"];
+                    NSScanner * scan = [NSScanner scannerWithString:distancetemp];
+                    [scan scanUpToString:@"," intoString:&longs];
+                    [scan scanString:@"," intoString:nil];
+                    [scan scanString:@"" intoString:&lats];
+                    
+                    CLLocation *locB = [[CLLocation alloc] initWithLatitude:[lats floatValue] longitude:[longs floatValue]];
+                    
+                    CLLocationDistance distance = [location1 distanceFromLocation:locB];
+                    NSString * distancer = [NSString stringWithFormat:@"%f",distance];
+                    NSLog(@"%f",distance);
+                    
+                        [fbfriendsnearby addObject:user ];
+                    NSLog(@"%i",[fbfriendsnearby count]);
+                    
+                    
+                    NSString * stringr = user[@"profile"][@"facebookId"];
+                    NSLog(@"strupper%@",stringr);
+                    
+                    k++;
+                    
+                }
+                [self save:fbfriendsnearby];
+            } else {
+                // Log details of the failure
+                NSLog(@"Error: %@ %@", error, [error userInfo]);
+                
+            }
+        }
+        @catch (NSException *exception) {
+            NSLog(@"%@", exception);
+        }
+        @finally {
+            
+        }
+        
+    }];
+}
+
 
 -(void)save:(NSMutableArray*)array
 {
@@ -320,13 +334,14 @@
         [names addObject:name];
         NSLog(@"debugpoint1%@",name);
     
-        NSString * status = [array objectAtIndex:i][@"profile"][@"relationship-status"];
-        [statuses addObject:status];
-        NSLog(@"debugpoint2%@",status);
+        NSString * status = [array objectAtIndex:i][@"profile"][@"relationship"];
+         NSLog(@"debugpoint2%@",status);
+       
         
         NSString * imageURL = [array objectAtIndex:i][@"profile"][@"pictureURL"];
-        [images addObject:imageURL];
         NSLog(@"debugpoint3%@",imageURL);
+        [images addObject:imageURL];
+        
         
         NSString * distancetemp = [array objectAtIndex:i][@"profile"][@"currentLocation"];
         CLLocation * loc = (CLLocation*)[PFUser currentUser][@"currentLocation"];
@@ -341,12 +356,13 @@
         
         CLLocationDistance distance = [location1 distanceFromLocation:locB];
         NSString * distancer = [NSString stringWithFormat:@"%f",distance];
+        NSLog(@"debugpoint4%@",distancer);
             [distances addObject:distancer ];
+        
     }
     
 
     [defaults setObject:names forKey:@"names"];
-    [defaults setObject:statuses forKey:@"statuses"];
     [defaults setObject:distances forKey:@"distances"];
     [defaults setObject:images forKey:@"images"];
 }

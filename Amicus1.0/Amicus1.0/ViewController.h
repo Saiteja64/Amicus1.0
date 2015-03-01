@@ -16,7 +16,7 @@
 - (IBAction)getData:(id)sender;
 -(IBAction)logOut:(id)sender;
 -(void)save:(NSMutableArray*)array;
-
+-(IBAction)press:(id)sender;
 
 @end
 

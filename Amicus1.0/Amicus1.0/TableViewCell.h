@@ -12,6 +12,5 @@
 
 @property (nonatomic, weak) IBOutlet UILabel *nameLabel;
 @property (nonatomic, weak) IBOutlet UILabel *distanceLabel;
-@property (nonatomic, weak) IBOutlet UILabel *relLabel;
 @property (nonatomic, weak) IBOutlet UIImageView * proPic;
 @end

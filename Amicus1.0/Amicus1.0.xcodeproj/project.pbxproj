@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2F1B7EFB1AA26515008CEF16 /* ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1B7EFA1AA26515008CEF16 /* ViewController2.m */; };
 		2F1B7EFE1AA2659B008CEF16 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1B7EFD1AA2659B008CEF16 /* TableViewCell.m */; };
+		2F544F671AA2CFEB00DF616F /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F544F661AA2CFEB00DF616F /* TableViewController.m */; };
 		2FCE07F21AA1197100435BCF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FCE07F11AA1197100435BCF /* main.m */; };
 		2FCE07F51AA1197100435BCF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FCE07F41AA1197100435BCF /* AppDelegate.m */; };
 		2FCE07F81AA1197100435BCF /* Amicus1_0.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2FCE07F61AA1197100435BCF /* Amicus1_0.xcdatamodeld */; };
@@ -49,10 +49,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2F1B7EF91AA26514008CEF16 /* ViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController2.h; sourceTree = "<group>"; };
-		2F1B7EFA1AA26515008CEF16 /* ViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController2.m; sourceTree = "<group>"; };
 		2F1B7EFC1AA2659B008CEF16 /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
 		2F1B7EFD1AA2659B008CEF16 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
+		2F544F651AA2CFEB00DF616F /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		2F544F661AA2CFEB00DF616F /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		2FCE07EC1AA1197100435BCF /* Amicus1.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Amicus1.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FCE07F01AA1197100435BCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FCE07F11AA1197100435BCF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -150,12 +150,12 @@
 				2FCE07F31AA1197100435BCF /* AppDelegate.h */,
 				2F1B7EFC1AA2659B008CEF16 /* TableViewCell.h */,
 				2F1B7EFD1AA2659B008CEF16 /* TableViewCell.m */,
-				2F1B7EF91AA26514008CEF16 /* ViewController2.h */,
-				2F1B7EFA1AA26515008CEF16 /* ViewController2.m */,
 				2FCE07F41AA1197100435BCF /* AppDelegate.m */,
 				2FCE07F91AA1197100435BCF /* ViewController.h */,
 				2FCE07FA1AA1197100435BCF /* ViewController.m */,
 				2FCE07FC1AA1197100435BCF /* Main.storyboard */,
+				2F544F651AA2CFEB00DF616F /* TableViewController.h */,
+				2F544F661AA2CFEB00DF616F /* TableViewController.m */,
 				2FCE07FF1AA1197100435BCF /* Images.xcassets */,
 				2FCE08011AA1197100435BCF /* LaunchScreen.xib */,
 				2FCE07F61AA1197100435BCF /* Amicus1_0.xcdatamodeld */,
@@ -318,9 +318,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FCE07F81AA1197100435BCF /* Amicus1_0.xcdatamodeld in Sources */,
+				2F544F671AA2CFEB00DF616F /* TableViewController.m in Sources */,
 				2F1B7EFE1AA2659B008CEF16 /* TableViewCell.m in Sources */,
 				2FCE07F51AA1197100435BCF /* AppDelegate.m in Sources */,
-				2F1B7EFB1AA26515008CEF16 /* ViewController2.m in Sources */,
 				2FCE07FB1AA1197100435BCF /* ViewController.m in Sources */,
 				2FCE07F21AA1197100435BCF /* main.m in Sources */,
 			);

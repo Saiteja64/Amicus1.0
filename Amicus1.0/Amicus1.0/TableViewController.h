@@ -1,5 +1,5 @@
 //
-//  ViewController2.h
+//  TableViewController.h
 //  Amicus1.0
 //
 //  Created by Saiteja Samudrala on 2/28/15.
@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController2 : UIViewController <UITableViewDelegate>
-@property (weak, nonatomic) IBOutlet UITableView * tableView;
+@interface TableViewController : UITableViewController
 
 @end
