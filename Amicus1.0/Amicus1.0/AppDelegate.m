@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import <FacebookSDK/FacebookSDK.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
+#import <ParseCrashReporting/ParseCrashReporting.h>
 #import <Sinch/Sinch.h>
 #import "MNCChatMessage.h"
 #import <Sinch/SINOutgoingMessage.h>
@@ -29,8 +30,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    [ParseCrashReporting enable];
     [Parse setApplicationId:@"CNLajQQhWyZ83ZZAP0Uq2kdWLmHRGZR5mAeHoy7P"
                   clientKey:@"5Ydf5dAmA8CoAmbqcLnyKjkpnLvNaQlqyDpdXioB"];
+    
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     [PFFacebookUtils initializeFacebook];
     return YES;

@@ -31,7 +31,6 @@
 		2FCE08001AA1197100435BCF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FCE07FF1AA1197100435BCF /* Images.xcassets */; };
 		2FCE08031AA1197100435BCF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FCE08011AA1197100435BCF /* LaunchScreen.xib */; };
 		2FCE080F1AA1197100435BCF /* Amicus1_0Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FCE080E1AA1197100435BCF /* Amicus1_0Tests.m */; };
-		2FCE08271AA11B7600435BCF /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FCE08221AA11B7600435BCF /* Bolts.framework */; };
 		2FCE08281AA11B7600435BCF /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FCE08231AA11B7600435BCF /* Parse.framework */; };
 		2FCE08291AA11B7600435BCF /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FCE08241AA11B7600435BCF /* ParseCrashReporting.framework */; };
 		2FCE082B1AA11B7600435BCF /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FCE08261AA11B7600435BCF /* ParseUI.framework */; };
@@ -48,6 +47,10 @@
 		2FCE08421AA11C2C00435BCF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FCE08411AA11C2C00435BCF /* SystemConfiguration.framework */; };
 		2FCE08441AA11C3700435BCF /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FCE08431AA11C3700435BCF /* libz.dylib */; };
 		2FCE08461AA11C4000435BCF /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FCE08451AA11C4000435BCF /* libsqlite3.dylib */; };
+		771E47EC1AA3910F00315D49 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 771E47EB1AA3910F00315D49 /* CoreTelephony.framework */; };
+		771E47EE1AA3912C00315D49 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 771E47ED1AA3912C00315D49 /* Foundation.framework */; };
+		771E47F01AA3913400315D49 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 771E47EF1AA3913400315D49 /* ImageIO.framework */; };
+		771E47F41AA3915D00315D49 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 771E47F31AA3915D00315D49 /* libstdc++.6.0.9.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +116,11 @@
 		2FCE08411AA11C2C00435BCF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		2FCE08431AA11C3700435BCF /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		2FCE08451AA11C4000435BCF /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		771E47EB1AA3910F00315D49 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		771E47ED1AA3912C00315D49 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		771E47EF1AA3913400315D49 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		771E47F11AA3915100315D49 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		771E47F31AA3915D00315D49 /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +128,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FCE08381AA11C0100435BCF /* MobileCoreServices.framework in Frameworks */,
+				771E47F41AA3915D00315D49 /* libstdc++.6.0.9.dylib in Frameworks */,
+				771E47F01AA3913400315D49 /* ImageIO.framework in Frameworks */,
+				771E47EE1AA3912C00315D49 /* Foundation.framework in Frameworks */,
+				771E47EC1AA3910F00315D49 /* CoreTelephony.framework in Frameworks */,
 				2F608BB61AA3195C0038DC86 /* AVFoundation.framework in Frameworks */,
 				2FCE08461AA11C4000435BCF /* libsqlite3.dylib in Frameworks */,
 				2F48F4191AA386F40031CBE2 /* Sinch.framework in Frameworks */,
@@ -131,7 +144,6 @@
 				2FCE083E1AA11C1900435BCF /* Social.framework in Frameworks */,
 				2FCE083C1AA11C1200435BCF /* Security.framework in Frameworks */,
 				2FCE083A1AA11C0A00435BCF /* QuartzCore.framework in Frameworks */,
-				2FCE08381AA11C0100435BCF /* MobileCoreServices.framework in Frameworks */,
 				2FCE08361AA11BF700435BCF /* CoreLocation.framework in Frameworks */,
 				2FCE08341AA11BED00435BCF /* CoreGraphics.framework in Frameworks */,
 				2FCE08321AA11BE400435BCF /* CFNetwork.framework in Frameworks */,
@@ -140,7 +152,6 @@
 				2FCE08281AA11B7600435BCF /* Parse.framework in Frameworks */,
 				2FCE08291AA11B7600435BCF /* ParseCrashReporting.framework in Frameworks */,
 				2FCE082B1AA11B7600435BCF /* ParseUI.framework in Frameworks */,
-				2FCE08271AA11B7600435BCF /* Bolts.framework in Frameworks */,
 				2F48F4171AA385340031CBE2 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -158,6 +169,11 @@
 		2FCE07E31AA1197100435BCF = {
 			isa = PBXGroup;
 			children = (
+				771E47F31AA3915D00315D49 /* libstdc++.6.0.9.dylib */,
+				771E47F11AA3915100315D49 /* libstdc++.dylib */,
+				771E47EF1AA3913400315D49 /* ImageIO.framework */,
+				771E47ED1AA3912C00315D49 /* Foundation.framework */,
+				771E47EB1AA3910F00315D49 /* CoreTelephony.framework */,
 				2F608BAD1AA315D70038DC86 /* UIKit.framework */,
 				2F608BB51AA3195C0038DC86 /* AVFoundation.framework */,
 				2FCE07EE1AA1197100435BCF /* Amicus1.0 */,
@@ -310,10 +326,11 @@
 				TargetAttributes = {
 					2FCE07EB1AA1197100435BCF = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = 4MHGB5N6RT;
+						DevelopmentTeam = FC4XN2J4CS;
 					};
 					2FCE08071AA1197100435BCF = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = FC4XN2J4CS;
 						TestTargetID = 2FCE07EB1AA1197100435BCF;
 					};
 				};
@@ -507,9 +524,9 @@
 				INFOPLIST_FILE = Amicus1.0/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				"OTHER_LDFLAGS[arch=*]" = (
-					"-ObjC",
 					"-Xlinker",
 					"-lc++",
+					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
